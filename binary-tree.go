@@ -26,16 +26,6 @@ func (n* Node) insert(data int) error {
 	}
 }
 
-func (n *Node) inOrderTraversal() {
-	if n == nil {
-		return
-	}
-
-	n.left.inOrderTraversal()
-	fmt.Println(n.data)
-	n.right.inOrderTraversal()
-}
-
 func (root *Node) diameter() int {
 	if root == nil {
 		return 0
