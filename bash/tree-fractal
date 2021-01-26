@@ -1,0 +1,35 @@
+#!/bin/bash
+drawLines(){
+	if (( $1 == 63 )); then
+                for i in {1..100};do
+                        printf "_"
+                done
+		printf "\n"		
+	else
+		drawLines $(($1 + 1))
+		for i in {1..100};do
+			printf "_"   
+		done
+		printf "\n"
+	fi
+}
+
+
+createTree(){
+	height=$1
+	start=$2
+	if (( height == 0 ));then
+		echo 1
+	else
+		for i in $(seq 1 1 $start);do
+			printf "_"
+		done
+		printf "1"
+		for i in $(seq $((start+2)) 1 100);do
+			printf "_"
+		done
+		printf "\n"
+		createTree $((height-1)) $start
+	fi
+}
+createTree 8 50
